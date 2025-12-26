@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Minikobo - Polymer Clay Crafts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎨</span>
+                <span class="logo-text">minikobo</span>
+                <span class="logo-domain">.com</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#products">Shop</a>
+                <a href="index.html#about">About</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="#" class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <button class="menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="contact-hero-content">
+                <h1>Get in Touch</h1>
+                <p>We'd love to hear from you! Whether you have questions about our products, need help with an order, or want to discuss custom commissions, we're here to help.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                    
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject">
+                                <option value="">Select a topic</option>
+                                <option value="order">Order Inquiry</option>
+                                <option value="product">Product Question</option>
+                                <option value="custom">Custom Order</option>
+                                <option value="wholesale">Wholesale Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-envelope"></i> Email Us</h3>
+                        <p>For general inquiries:</p>
+                        <a href="mailto:hello@minikobo.com" class="contact-link">hello@minikobo.com</a>
+                        
+                        <p>For order support:</p>
+                        <a href="mailto:orders@minikobo.com" class="contact-link">orders@minikobo.com</a>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-phone"></i> Call Us</h3>
+                        <p>Monday - Friday: 9AM - 5PM PST</p>
+                        <a href="tel:+15551234567" class="contact-link">(555) 123-4567</a>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Visit Us</h3>
+                        <p>Our studio (by appointment only):</p>
+                        <address>
+                            123 Craft Avenue<br>
+                            Artisan District<br>
+                            Portland, OR 97201
+                        </address>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-clock"></i> Response Time</h3>
+                        <p>We typically respond within:</p>
+                        <ul class="response-times">
+                            <li><strong>24 hours</strong> on weekdays</li>
+                            <li><strong>48 hours</strong> on weekends</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3><i class="fas fa-shipping-fast"></i> How long does shipping take?</h3>
+                        <p>Most orders ship within 3-5 business days. Domestic shipping takes 5-7 business days. We are not accepting international orders at this time.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3><i class="fas fa-undo"></i> What is your return policy?</h3>
+                        <p>If you are not happy with your purchase, please contact mini_kobo@outlook.com for support.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3><i class="fas fa-palette"></i> What if my package is lost or delayed?</h3>
+                        <p>You will receive a tracking number via email. If your order is delayed, please check your tracking information first, then contact your local post office for assistance.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3><i class="fas fa-store"></i> Can I cancel my order?</h3>
+                        <p>Please contact mini_kobo@outlook.com for support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-icon">🎨</span>
+                        <span class="logo-text">minikobo</span>
+                        <span class="logo-domain">.com</span>
+                    </a>
+                    <p class="footer-tagline">Tiny creations, big joy</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-etsy"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Shop</h4>
+                        <a href="index.html#products">All Products</a>
+                        <a href="index.html#products">Jewelry</a>
+                        <a href="index.html#products">Keychains</a>
+                        <a href="index.html#products">Home Decor</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Help</h4>
+                        <a href="#">Shipping Info</a>
+                        <a href="#">Returns & Exchanges</a>
+                        <a href="#">FAQ</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>About</h4>
+                        <a href="index.html#about">Our Story</a>
+                        <a href="contact.html">Custom Orders</a>
+                        <a href="#">Care Instructions</a>
+                        <a href="#">Wholesale</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 minikobo.com. All rights reserved. | Handmade with love</p>
+                <p class="footer-note">This is a demo site for local testing. No real payments are processed.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Minikobo Cart</h3>
+            <button class="close-cart" id="closeCart">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart-msg">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <a href="checkout.html" class="btn checkout-btn">Proceed to Checkout</a>
+            <p class="cart-note">Free shipping on orders over $50</p>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle"></i>
+            <h2>Message Sent!</h2>
+            <p>Thank you for contacting minikobo. We'll get back to you within 24 hours.</p>
+            <button class="btn" id="closeModal">OK</button>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>
