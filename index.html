@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minikobo | Handmade Polymer Clay Crafts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎨</span>
+                <span class="logo-text">minikobo</span>
+                <span class="logo-domain">.com</span>
+            </a>
+            <div class="nav-links">
+                <a href="#" class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <button class="menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products" id="products">
+        <div class="container">
+            <h2 class="section-title">Latest Collection</h2>
+            <p class="section-subtitle">Each piece is carefully handcrafted with love and attention to detail</p>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Products loaded dynamically -->
+            </div>
+            
+            <div class="view-all-container">
+                <a href="#products" class="btn view-all-btn" id="loadMoreProducts">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Minikobo Cart</h3>
+            <button class="close-cart" id="closeCart">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart-msg">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <a href="checkout.html" class="btn checkout-btn">Proceed to Checkout</a>
+            <p class="cart-note">Free shipping on orders over $50</p>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-icon">🎨</span>
+                        <span class="logo-text">minikobo</span>
+                        <span class="logo-domain">.com</span>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Help</h4>
+                        <a href="#">Shipping Info</a>
+                        <a href="#">Refund Policy</a>
+                        <a href="#">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 minikobo.com. Handmade with love</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+
+        <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            
+            <div class="modal-product">
+                <div class="modal-product-images">
+                    <div class="main-image">
+                        <i id="modalCategoryIcon"></i>
+                    </div>
+                </div>
+                
+                <div class="modal-product-details">
+                    <span class="product-category" id="modalCategory"></span>
+                    <h2 id="modalProductName"></h2>
+                    <div class="product-price" id="modalPrice"></div>
+                    
+                    <p class="product-description-full" id="modalDescription"></p>
+                    
+                    <div class="product-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <div>
+                                <h4>Dimensions</h4>
+                                <p id="modalDimensions">Varies by item</p>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-palette"></i>
+                            <div>
+                                <h4>Colors</h4>
+                                <p id="modalColors">Multiple colors available</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="add-to-cart-modal">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="btn add-to-cart-btn" id="modalAddToCart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
