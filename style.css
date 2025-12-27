@@ -1160,7 +1160,7 @@ h1, h2, h3, h4 {
 
 /* Contact Page Styles */
 .contact-hero {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    background: linear-gradient(rgba(255, 105, 180, 0.7), rgba(255, 182, 193, 0.7)), url('images/banner.jpg') center/cover no-repeat;
     color: white;
     padding: 100px 0 60px;
     text-align: center;
@@ -1490,4 +1490,231 @@ address {
 @keyframes fadeOut {
     from { opacity: 1; }
     to { opacity: 0; }
+}
+
+/* Newsletter Banner */
+.newsletter-banner {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 60px 0;
+    margin-top: 60px;
+}
+
+.newsletter-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.newsletter-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.newsletter-text h3 i {
+    font-size: 1.5rem;
+}
+
+.newsletter-text p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 500px;
+}
+
+.newsletter-form {
+    flex: 1;
+    max-width: 500px;
+}
+
+.newsletter-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.newsletter-input-group input {
+    flex: 1;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    transition: var(--transition);
+}
+
+.newsletter-input-group input:focus {
+    outline: none;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.newsletter-input-group input::placeholder {
+    color: var(--text-light);
+}
+
+.newsletter-btn {
+    padding: 16px 30px;
+    background: var(--accent-color);
+    border: none;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.newsletter-btn:hover {
+    background: var(--dark-color);
+    transform: translateY(-2px);
+}
+
+.newsletter-btn i {
+    margin-right: 8px;
+}
+
+.newsletter-agreement {
+    margin-top: 15px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--accent-color);
+}
+
+.checkbox-label span {
+    line-height: 1.4;
+}
+
+/* Newsletter Success Modal */
+.newsletter-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.newsletter-modal.active {
+    display: flex;
+}
+
+.newsletter-modal-content {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    animation: modalFadeIn 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.newsletter-modal-icon {
+    font-size: 4.5rem;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+    animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.newsletter-modal h2 {
+    color: var(--dark-color);
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+}
+
+.newsletter-modal p {
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.newsletter-modal-btn {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.newsletter-modal-btn:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Responsive Newsletter */
+@media (max-width: 992px) {
+    .newsletter-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .newsletter-text h3 {
+        justify-content: center;
+    }
+    
+    .newsletter-text p {
+        max-width: 100%;
+    }
+    
+    .newsletter-form {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .newsletter-banner {
+        padding: 40px 0;
+    }
+    
+    .newsletter-input-group {
+        flex-direction: column;
+    }
+    
+    .newsletter-btn {
+        width: 100%;
+    }
+    
+    .newsletter-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .newsletter-modal-content {
+        padding: 30px 20px;
+    }
+    
+    .newsletter-modal h2 {
+        font-size: 1.8rem;
+    }
 }

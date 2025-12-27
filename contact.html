@@ -21,7 +21,7 @@
                 <a href="index.html">Home</a>
                 <a href="index.html#products">Shop</a>
                 <a href="index.html#about">About</a>
-                <a href="contact.html" class="active">Contact</a>
+                <a href="contact.html">Contact</a>
                 <a href="#" class="cart-icon" id="cartIcon">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
@@ -31,97 +31,9 @@
         </div>
     </nav>
 
-    <!-- Contact Hero Section -->
-    <section class="contact-hero">
-        <div class="container">
-            <div class="contact-hero-content">
-                <h1>Get in Touch</h1>
-                <p>We'd love to hear from you! Whether you have questions about our products, need help with an order, or want to discuss custom commissions, we're here to help.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Content -->
     <section class="contact-content">
         <div class="container">
-            <div class="contact-grid">
-                <!-- Contact Form -->
-                <div class="contact-form-container">
-                    <h2>Send Us a Message</h2>
-                    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
-                    
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject" name="subject">
-                                <option value="">Select a topic</option>
-                                <option value="order">Order Inquiry</option>
-                                <option value="product">Product Question</option>
-                                <option value="custom">Custom Order</option>
-                                <option value="wholesale">Wholesale Inquiry</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn submit-btn">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
-                
-                <!-- Contact Info -->
-                <div class="contact-info">
-                    <div class="info-card">
-                        <h3><i class="fas fa-envelope"></i> Email Us</h3>
-                        <p>For general inquiries:</p>
-                        <a href="mailto:hello@minikobo.com" class="contact-link">hello@minikobo.com</a>
-                        
-                        <p>For order support:</p>
-                        <a href="mailto:orders@minikobo.com" class="contact-link">orders@minikobo.com</a>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3><i class="fas fa-phone"></i> Call Us</h3>
-                        <p>Monday - Friday: 9AM - 5PM PST</p>
-                        <a href="tel:+15551234567" class="contact-link">(555) 123-4567</a>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3><i class="fas fa-map-marker-alt"></i> Visit Us</h3>
-                        <p>Our studio (by appointment only):</p>
-                        <address>
-                            123 Craft Avenue<br>
-                            Artisan District<br>
-                            Portland, OR 97201
-                        </address>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3><i class="fas fa-clock"></i> Response Time</h3>
-                        <p>We typically respond within:</p>
-                        <ul class="response-times">
-                            <li><strong>24 hours</strong> on weekdays</li>
-                            <li><strong>48 hours</strong> on weekends</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
             <!-- FAQ Section -->
             <div class="faq-section">
                 <h2>Frequently Asked Questions</h2>
@@ -144,7 +56,7 @@
                     
                     <div class="faq-item">
                         <h3><i class="fas fa-store"></i> Can I cancel my order?</h3>
-                        <p>Please contact mini_kobo@outlook.com for support.</p>
+                        <p>Please contact mini_kobo@outlook.com for support. However please understand that once your order is shipped, cancellations won't be possible.</p>
                     </div>
                 </div>
             </div>
@@ -192,6 +104,13 @@
                         <a href="#">Care Instructions</a>
                         <a href="#">Wholesale</a>
                     </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Accessibility</a>
+                    </div>
                 </div>
             </div>
             
@@ -234,5 +153,30 @@
 
     <script src="cart.js"></script>
     <script src="contact.js"></script>
+
+        <!-- Newsletter Banner -->
+    <section class="newsletter-banner">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h3><i class="fas fa-envelope-open-text"></i> Join Our Newsletter</h3>
+                    <p>Get discounts and updates on new collections!</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="newsletter-input-group">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn newsletter-btn">
+                            <i class="fas fa-paper-plane"></i> Subscribe
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Existing footer content remains here -->
+    </footer>
 </body>
 </html>

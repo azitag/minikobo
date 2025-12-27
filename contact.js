@@ -178,3 +178,128 @@ function updateCartCount() {
         cartCount.textContent = totalItems;
     }
 }
+
+// Newsletter Subscription
+document.addEventListener('DOMContentLoaded', function() {
+    // ... existing code ...
+    
+    // Newsletter Form Submission
+    const newsletterForm = document.getElementById('newsletterForm');
+    const newsletterModal = document.createElement('div');
+    
+    // Create newsletter success modal
+    newsletterModal.className = 'newsletter-modal';
+    newsletterModal.id = 'newsletterModal';
+    newsletterModal.innerHTML = `
+        <div class="newsletter-modal-content">
+            <div class="newsletter-modal-icon">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h2>Welcome to the Minikobo Family! 🎨</h2>
+            <p>Thank you for subscribing to our newsletter! You'll receive:<br>
+            • Updates on new polymer clay creations<br>
+            • Exclusive offers and discounts<br>
+            • Crafting tips and tutorials<br>
+            • Behind-the-scenes studio peeks</p>
+            <p><strong>Your first email is on its way!</strong></p>
+            <button class="newsletter-modal-btn" id="closeNewsletterModal">
+                Continue Exploring
+            </button>
+        </div>
+    `;
+    
+    document.body.appendChild(newsletterModal);
+    
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = this.querySelector('input[type="email"]');
+            const checkbox = this.querySelector('input[type="checkbox"]');
+            const email = emailInput.value.trim();
+            
+            // Validation
+            if (!email) {
+                showNotification('Please enter your email address.', 'error');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            if (!checkbox.checked) {
+                showNotification('Please agree to receive updates.', 'error');
+                return;
+            }
+            
+            // Save subscription (in production, this would go to a server)
+            saveNewsletterSubscription(email);
+            
+            // Show success modal
+            showNewsletterSuccess();
+            
+            // Reset form
+            newsletterForm.reset();
+        });
+    }
+    
+    // Close newsletter modal
+    const closeNewsletterModal = document.getElementById('closeNewsletterModal');
+    if (closeNewsletterModal) {
+        closeNewsletterModal.addEventListener('click', function() {
+            newsletterModal.classList.remove('active');
+        });
+    }
+    
+    newsletterModal.addEventListener('click', function(e) {
+        if (e.target === newsletterModal) {
+            newsletterModal.classList.remove('active');
+        }
+    });
+    
+    // Newsletter functions
+    function saveNewsletterSubscription(email) {
+        // Get existing subscriptions or create new array
+        const subscriptions = JSON.parse(localStorage.getItem('minikoboNewsletterSubs')) || [];
+        
+        // Check if email already exists
+        if (subscriptions.some(sub => sub.email === email)) {
+            console.log('Email already subscribed:', email);
+            return;
+        }
+        
+        // Add new subscription
+        subscriptions.push({
+            email: email,
+            date: new Date().toISOString(),
+            active: true
+        });
+        
+        // Save to localStorage
+        localStorage.setItem('minikoboNewsletterSubs', JSON.stringify(subscriptions));
+        
+        console.log('Newsletter subscription saved:', email);
+        console.log('Total subscriptions:', subscriptions.length);
+        
+        // In a real application, you would send this to your backend
+        // Example: sendToBackend({ email: email, source: 'contact-page' });
+    }
+    
+    function showNewsletterSuccess() {
+        const modal = document.getElementById('newsletterModal');
+        if (modal) {
+            modal.classList.add('active');
+            
+            // Auto-close after 8 seconds
+            setTimeout(() => {
+                if (modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                }
+            }, 8000);
+        }
+    }
+    
+    // ... existing validation functions ...
+});
