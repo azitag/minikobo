@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mini kobo | Handmade Polymer Clay Crafts</title>
+    <title>Contact Us | Minikobo - Polymer Clay Crafts</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -29,54 +29,60 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-overlay"></div>
-        </div>
-    </section>
-
-    <!-- Featured Products -->
-    <section class="featured-products" id="products">
+    <!-- Contact Content -->
+    <section class="contact-content">
         <div class="container">
-            <h2 class="section-title">Latest Collection</h2>
-            
-            <div class="products-grid" id="productsGrid">
-                <!-- Products loaded dynamically -->
+            <!-- Contact Info Box -->
+            <div class="contact-info-box">
+                <div class="contact-email-section">
+                    <h2><i class="fas fa-envelope"></i> Get in Touch</h2>
+                    <p class="contact-description">Have questions? We'd love to hear from you!</p>
+                    <div class="email-display">
+                        <i class="fas fa-paper-plane"></i>
+                        <a href="mailto:mini_kobo@outlook.com">mini_kobo@outlook.com</a>
+                    </div>
+                </div>
+                <div class="contact-image-section">
+                    <img src="images/favicon.png" alt="mini kobo" style="width: 60%; height: auto; border-radius: 12px; display: block; margin: 0 auto;">
+                </div>
             </div>
             
-            <div class="view-all-container">
-                <a href="#products" class="btn view-all-btn" id="loadMoreProducts">View All Products</a>
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3><i class="fas fa-shipping-fast"></i> How long does shipping take?</h3>
+                        <p>Most orders ship within 3-5 business days. Domestic shipping takes 5-7 business days. We are not accepting international orders at this time.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3><i class="fas fa-undo"></i> What is your return policy?</h3>
+                        <p>If you are not happy with your purchase, please contact mini_kobo@outlook.com for support.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3><i class="fas fa-palette"></i> What if my package is lost or delayed?</h3>
+                        <p>You will receive a tracking number via email. If your order is delayed, please check your tracking information first, then contact your local post office for assistance.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3><i class="fas fa-store"></i> Can I cancel my order?</h3>
+                        <p>Please contact mini_kobo@outlook.com for support. However please understand that once your order is shipped, cancellations won't be possible.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Cart Sidebar -->
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
-            <button class="close-cart" id="closeCart">×</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <p class="empty-cart-msg">Your cart is empty</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cartTotal">$0.00</span>
-            </div>
-            <a href="checkout.html" class="btn checkout-btn">Proceed to Checkout</a>
-            <p class="cart-note">Free shipping on orders over $50</p>
-        </div>
-    </div>
-    <div class="cart-overlay" id="cartOverlay"></div>
 
 <!-- Newsletter Banner -->
 <section class="newsletter-banner">
     <div class="container">
         <div class="newsletter-content">
             <div class="newsletter-text">
-                <h3><i class="fas fa-envelope-open-text"></i> Join our Newsletter!</h3>
-                <p>Get updates on new collections</p>
+                <h3><i class="fas fa-envelope-open-text"></i> Join Our Creative Community</h3>
+                <p>Subscribe to get updates on new creations, exclusive offers, and polymer clay crafting tips!</p>
             </div>
             
             <!-- MailerLite Signup Form -->
@@ -216,7 +222,7 @@ console.log('Form ID: 35081611');
 </script>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
@@ -243,110 +249,37 @@ console.log('Form ID: 35081611');
         </div>
     </footer>
 
-    <script src="products.js"></script>
-    <script src="cart.js"></script>
-    <script src="script.js"></script>
-
-        <!-- Product Detail Modal -->
-    <div class="product-modal" id="productModal">
-        <div class="modal-overlay" id="modalOverlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
-            
-            <div class="modal-product">
-                <div class="modal-product-images">
-                    <div class="main-image">
-                        <i id="modalCategoryIcon"></i>
-                    </div>
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Minikobo Cart</h3>
+            <button class="close-cart" id="closeCart">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart-msg">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <div class="newsletter-text">
+                    <h3><i class="fas fa-envelope-open-text"></i> Join Our Newsletter</h3>
+                    <p>Get discounts and updates on new collections!</p>
                 </div>
-                
-                <div class="modal-product-details">
-                    <span class="product-category" id="modalCategory"></span>
-                    <h2 id="modalProductName"></h2>
-                    <div class="product-price" id="modalPrice"></div>
-                    
-                    <p class="product-description-full" id="modalDescription"></p>
-                    
-                    <div class="product-specs">
-                        <div class="spec-item">
-                            <i class="fas fa-ruler-combined"></i>
-                            <div>
-                                <h4>Dimensions</h4>
-                                <p id="modalDimensions">Varies by item</p>
-                            </div>
-                        </div>
-                        <div class="spec-item">
-                            <i class="fas fa-palette"></i>
-                            <div>
-                                <h4>Colors</h4>
-                                <p id="modalColors">Multiple colors available</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="add-to-cart-modal">
-                        <div class="quantity-selector">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="1" min="1" max="10">
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        <button class="btn add-to-cart-btn" id="modalAddToCart">
-                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="newsletter-input-group">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn newsletter-btn">
+                            <i class="fas fa-paper-plane"></i> Subscribe
                         </button>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Reviews Section -->
-            <div class="product-reviews">
-                <h3><i class="fas fa-star"></i> Customer Reviews</h3>
-                
-                <div class="reviews-list" id="reviewsList">
-                    <!-- Reviews will be loaded here -->
-                </div>
-                
-                <div class="add-review-section">
-                    <h4>Write a Review</h4>
-                    <form class="review-form" id="reviewForm">
-                        <div class="rating-input">
-                            <label>Rating:</label>
-                            <div class="star-rating">
-                                <input type="radio" name="rating" value="5" id="star5">
-                                <label for="star5"><i class="fas fa-star"></i></label>
-                                <input type="radio" name="rating" value="4" id="star4">
-                                <label for="star4"><i class="fas fa-star"></i></label>
-                                <input type="radio" name="rating" value="3" id="star3">
-                                <label for="star3"><i class="fas fa-star"></i></label>
-                                <input type="radio" name="rating" value="2" id="star2">
-                                <label for="star2"><i class="fas fa-star"></i></label>
-                                <input type="radio" name="rating" value="1" id="star1">
-                                <label for="star1"><i class="fas fa-star"></i></label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="text" id="reviewerName" placeholder="Your Name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <textarea id="reviewText" placeholder="Share your experience with this product..." rows="4" required></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="reviewPhotos" class="photo-upload-label">
-                                <i class="fas fa-camera"></i> Add Photos (Optional)
-                            </label>
-                            <input type="file" id="reviewPhotos" accept="image/*" multiple style="display: none;">
-                            <div class="photo-preview" id="photoPreview"></div>
-                        </div>
-                        
-                        <button type="submit" class="btn submit-review-btn">
-                            <i class="fas fa-paper-plane"></i> Submit Review
-                        </button>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Existing footer content remains here -->
+    </footer>
 </body>
 </html>

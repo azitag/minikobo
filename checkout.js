@@ -66,13 +66,24 @@ function displayOrderSummary(cart) {
         const orderItem = document.createElement('div');
         orderItem.className = 'order-summary-item';
         orderItem.innerHTML = `
-            <div>
+            <div style="display: flex; align-items: center; gap: 10px; flex: 1;">
                 <span>${item.name} × ${item.quantity}</span>
             </div>
-            <span>$${itemTotal.toFixed(2)}</span>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span>$${itemTotal.toFixed(2)}</span>
+                <button class="remove-item-btn" data-id="${item.id}" title="Remove item">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
         `;
         
         orderItems.appendChild(orderItem);
+        
+        // Add event listener for delete button
+        const deleteBtn = orderItem.querySelector('.remove-item-btn');
+        deleteBtn.addEventListener('click', function() {
+            removeItemFromCheckout(item.id);
+        });
     });
     
     // Calculate shipping
@@ -94,6 +105,24 @@ function displayOrderSummary(cart) {
     if (orderTotalEl) orderTotalEl.textContent = `$${total.toFixed(2)}`;
 }
 
+// Remove item from checkout
+function removeItemFromCheckout(productId) {
+    // Get cart from localStorage
+    let cart = JSON.parse(localStorage.getItem('minikoboCart')) || [];
+    
+    // Remove item from cart
+    cart = cart.filter(item => item.id !== productId);
+    
+    // Update localStorage
+    localStorage.setItem('minikoboCart', JSON.stringify(cart));
+    
+    // Update cart count in header
+    updateCartCount();
+    
+    // Refresh order summary
+    displayOrderSummary(cart);
+}
+
 // Validate form
 function validateForm() {
     const requiredFields = [
@@ -102,6 +131,7 @@ function validateForm() {
     ];
     
     let isValid = true;
+    let emptyFields = [];
     
     requiredFields.forEach(fieldId => {
         const field = document.getElementById(fieldId);
@@ -109,11 +139,17 @@ function validateForm() {
             if (!field.value.trim()) {
                 isValid = false;
                 field.style.borderColor = 'red';
+                emptyFields.push(field.previousElementSibling ? field.previousElementSibling.textContent : fieldId);
             } else {
                 field.style.borderColor = '';
             }
         }
     });
+    
+    if (emptyFields.length > 0) {
+        alert('Please fill out all required fields:\n- ' + emptyFields.join('\n- '));
+        return false;
+    }
     
     // Validate email format
     const emailField = document.getElementById('email');
@@ -123,6 +159,7 @@ function validateForm() {
             isValid = false;
             emailField.style.borderColor = 'red';
             alert('Please enter a valid email address.');
+            return false;
         }
     }
     
@@ -134,6 +171,7 @@ function validateForm() {
             isValid = false;
             cardNumberField.style.borderColor = 'red';
             alert('Please enter a valid card number (13-19 digits).');
+            return false;
         }
     }
     

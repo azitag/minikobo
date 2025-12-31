@@ -6,7 +6,7 @@
     <title>Order Successful | Minikobo</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
         .success-container {
             max-width: 600px;
@@ -92,9 +92,7 @@
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="index.html#products">Shop</a>
-                <a href="index.html#about">About</a>
-                <a href="index.html#contact">Contact</a>
+                <a href="contact.html">Contact</a>
                 <a href="#" class="cart-icon" id="cartIcon">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
@@ -134,6 +132,61 @@
         </div>
     </div>
 
+    <!-- Newsletter Banner -->
+<section class="newsletter-banner">
+    <div class="container">
+        <div class="newsletter-content">
+            <div class="newsletter-text">
+                <h3><i class="fas fa-envelope-open-text"></i> Join Our Creative Community</h3>
+                <p>Subscribe to get updates on new creations, exclusive offers, and polymer clay crafting tips!</p>
+            </div>
+            
+            <!-- MailerLite Signup Form -->
+            <div id="mlb2-35081611" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-35081611">
+                <div class="ml-form-align-center">
+                    <div class="ml-form-embedWrapper embedForm">
+                        <div class="ml-form-embedBody ml-form-embedBodyHorizontal row-form">
+                            <form class="ml-block-form" 
+                                  action="https://assets.mailerlite.com/jsonp/2004539/forms/175001912783930654/subscribe" 
+                                  method="post" 
+                                  target="_blank"
+                                  data-code=""
+                                  onsubmit="return ml_webform_success_35081611()">
+                                
+                                <div class="ml-form-formContent horozintalForm">
+                                    <div class="ml-form-horizontalRow">
+                                        <div class="ml-input-horizontal">
+                                            <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                                <input type="email" class="form-control" name="fields[email]" placeholder="Your email address" autocomplete="email" required>
+                                            </div>
+                                        </div>
+                                        <div class="ml-button-horizontal primary">
+                                            <button type="submit" class="primary newsletter-submit-btn">
+                                                <i class="fas fa-paper-plane"></i> Subscribe
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <input type="hidden" name="ml-submit" value="1">
+                                <input type="hidden" name="anticsrf" value="true">
+                            </form>
+                            
+                            <!-- Success Message (initially hidden) -->
+                            <div class="ml-form-successBody row-success" style="display: none;">
+                                <div class="ml-form-successContent">
+                                    <h4>🎉 Welcome to Minikobo!</h4>
+                                    <p>Thank you for subscribing! You'll receive our next update soon.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -145,6 +198,13 @@
                         <span class="logo-domain">.com</span>
                     </a>
                     <p class="footer-tagline">Tiny creations, big joy</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <a href="contact.html">Contact Us</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                    </div>
                 </div>
             </div>
             
@@ -217,5 +277,95 @@
             }
         });
     </script>
+
+    <!-- MailerLite Script -->
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
+
+<!-- Custom Success Handler -->
+<script>
+// Store the original success function
+window.ml_webform_success_35081611_original = window.ml_webform_success_35081611;
+
+// Override with our improved version
+window.ml_webform_success_35081611 = function() {
+    console.log('MailerLite subscription successful!');
+    
+    // Call original function if it exists
+    if (typeof window.ml_webform_success_35081611_original === 'function') {
+        window.ml_webform_success_35081611_original();
+    }
+    
+    // Show success message
+    var formContainer = document.querySelector('.ml-subscribe-form-35081611');
+    if (formContainer) {
+        var form = formContainer.querySelector('.row-form');
+        var success = formContainer.querySelector('.row-success');
+        
+        if (form) form.style.display = 'none';
+        if (success) success.style.display = 'block';
+    }
+    
+    // Show celebration
+    showSubscriptionCelebration();
+    
+    return false; // Prevent default form submission
+};
+
+// Show celebration animation
+function showSubscriptionCelebration() {
+    console.log('🎉 Celebrating new subscription!');
+    
+    // Optional: Add confetti or animation
+    const banner = document.querySelector('.newsletter-banner');
+    if (banner) {
+        banner.style.animation = 'none';
+        setTimeout(() => {
+            banner.style.animation = 'float 6s ease-in-out infinite';
+        }, 10);
+    }
+    
+    // Optional: Show toast notification
+    showToast('🎉 Successfully subscribed!');
+}
+
+// Toast notification
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--accent-color);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 9999;
+        animation: slideIn 0.3s ease, fadeOut 0.3s ease 3s forwards;
+    `;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.parentNode.removeChild(toast);
+        }
+    }, 3300);
+}
+
+// Manually trigger form submission for testing
+function testMailerLite() {
+    console.log('Testing MailerLite form...');
+    const form = document.querySelector('.ml-block-form');
+    if (form) {
+        form.dispatchEvent(new Event('submit'));
+    }
+}
+
+// Debug: Log when scripts load
+console.log('MailerLite scripts loaded');
+console.log('Account ID: 2004539');
+console.log('Form ID: 35081611');
+</script>
 </body>
 </html>
