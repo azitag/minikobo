@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Minikobo - Polymer Clay Crafts</title>
+    <title>Contact | Minikobo - Polymer Clay Crafts</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+    <link rel="shortcut icon" href="/images/favicon.png">
 </head>
 <body>
     <!-- Navigation -->
@@ -81,8 +83,8 @@
     <div class="container">
         <div class="newsletter-content">
             <div class="newsletter-text">
-                <h3><i class="fas fa-envelope-open-text"></i> Join Our Creative Community</h3>
-                <p>Subscribe to get updates on new creations, exclusive offers, and polymer clay crafting tips!</p>
+                <h3><i class="fas fa-envelope-open-text"></i> Join Our Newsletter!</h3>
+                <p>Get updates on new collections</p>
             </div>
             
             <!-- MailerLite Signup Form -->
@@ -231,12 +233,11 @@ console.log('Form ID: 35081611');
                         <span class="logo-text">minikobo</span>
                         <span class="logo-domain">.com</span>
                     </a>
-                    <p class="footer-tagline">Tiny creations, big joy</p>
                 </div>
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <a href="contact.html">Contact Us</a>
+                        <a href="contact.html">Contact</a>
                         <a href="privacy.html">Privacy Policy</a>
                     </div>
                 </div>
@@ -244,7 +245,6 @@ console.log('Form ID: 35081611');
             
             <div class="footer-bottom">
                 <p>&copy; 2023 Minikobo.com. All rights reserved.</p>
-                <p class="footer-note">This is a demo website for local testing.</p>
             </div>
         </div>
     </footer>
@@ -252,7 +252,7 @@ console.log('Form ID: 35081611');
     <!-- Cart Sidebar -->
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
-            <h3><i class="fas fa-shopping-cart"></i> Your Minikobo Cart</h3>
+            <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
             <button class="close-cart" id="closeCart">×</button>
         </div>
         <div class="cart-items" id="cartItems">
@@ -261,25 +261,20 @@ console.log('Form ID: 35081611');
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total:</span>
-                <div class="newsletter-text">
-                    <h3><i class="fas fa-envelope-open-text"></i> Join Our Newsletter</h3>
-                    <p>Get discounts and updates on new collections!</p>
-                </div>
-                <form class="newsletter-form" id="newsletterForm">
-                    <div class="newsletter-input-group">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit" class="btn newsletter-btn">
-                            <i class="fas fa-paper-plane"></i> Subscribe
-                        </button>
-                    </div>
-                </form>
+                <span id="cartTotal">$0.00</span>
             </div>
+            <a href="checkout.html" class="btn checkout-btn">Proceed to Checkout</a>
+            <p class="cart-note">Free shipping on orders over $50</p>
         </div>
-    </section>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
 
     <!-- Footer -->
     <footer class="footer">
         <!-- Existing footer content remains here -->
     </footer>
+    
+    <script src="cart.js"></script>
+    <script src="contact.js"></script>
 </body>
 </html>

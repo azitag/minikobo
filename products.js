@@ -53,142 +53,6 @@ async function fetchFromLocalAPI(category) {
 // Reviews data (stored in localStorage)
 let reviewsData = JSON.parse(localStorage.getItem('minikoboReviews')) || {};
 
-// Product data for Minikobo
-const products = [
-    {
-        id: 1,
-        name: "Floral Clay Earrings",
-        description: "Handmade polymer clay earrings with delicate floral patterns.",
-        fullDescription: "These beautiful floral earrings are crafted from high-quality polymer clay and feature intricate floral designs. Each earring is carefully sculpted by hand, ensuring no two are exactly alike.",
-        price: 24.99,
-        category: "jewelry",
-        dimensions: "2.5 x 1.5 cm",
-        colors: "Pink, Lavender, Yellow, Blue",
-        featured: true
-    },
-    {
-        id: 2,
-        name: "Cactus Keychain",
-        description: "Adorable mini cactus keychain with tiny flowers.",
-        fullDescription: "This charming cactus keychain will brighten up your keyring! Each cactus is hand-sculpted with realistic details and features tiny polymer clay flowers.",
-        price: 16.50,
-        category: "keychains",
-        dimensions: "4 x 3 cm",
-        colors: "Green, Blue, Rainbow",
-        featured: true
-    },
-    {
-        id: 3,
-        name: "Rainbow Coasters Set",
-        description: "Set of 4 colorful polymer clay coasters.",
-        fullDescription: "Protect your surfaces in style with these vibrant rainbow coasters! Each set includes four unique coasters with different rainbow gradient patterns.",
-        price: 32.00,
-        category: "decor",
-        dimensions: "10 cm diameter",
-        colors: "Rainbow Gradient",
-        featured: true
-    },
-    {
-        id: 4,
-        name: "Animal Charms Collection",
-        description: "Set of 5 miniature animal charms for bracelets.",
-        fullDescription: "Create your own unique jewelry with this adorable animal charm collection! Each charm is meticulously sculpted and features incredible details.",
-        price: 28.75,
-        category: "jewelry",
-        dimensions: "1.5-2 cm each",
-        colors: "Natural, Pastel, Vibrant",
-        featured: true
-    },
-    {
-        id: 5,
-        name: "Geometric Trinket Dish",
-        description: "Small dish for jewelry with modern geometric design.",
-        fullDescription: "Keep your small treasures organized with this stylish geometric trinket dish! The modern geometric pattern is created by layering different colors of polymer clay.",
-        price: 22.00,
-        category: "decor",
-        dimensions: "8 x 8 x 2 cm",
-        colors: "Blue, Pink, Earth Tones",
-        featured: true
-    },
-    {
-        id: 6,
-        name: "Fruit Slice Keychains",
-        description: "Set of 3 fruit slice keychains.",
-        fullDescription: "Carry a slice of summer with you year-round! This set includes three realistic fruit slice keychains: lemon, orange, and watermelon.",
-        price: 20.00,
-        category: "keychains",
-        dimensions: "3 x 3 cm each",
-        colors: "Lemon, Orange, Watermelon",
-        featured: true
-    },
-    {
-        id: 7,
-        name: "Miniature Food Charms",
-        description: "Tiny polymer clay food items for charm bracelets.",
-        fullDescription: "These incredibly detailed miniature food charms are almost good enough to eat! The set includes donut, pizza, ice cream, and burger.",
-        price: 18.50,
-        category: "miniatures",
-        dimensions: "1-1.5 cm each",
-        colors: "Food Colors",
-        featured: true
-    },
-    {
-        id: 8,
-        name: "Marble Effect Beads",
-        description: "Set of polymer clay beads with elegant marble effect.",
-        fullDescription: "Create stunning jewelry with these elegant marble effect beads! Each bead features a unique marble pattern created by swirling together different colors.",
-        price: 26.00,
-        category: "jewelry",
-        dimensions: "0.5-2 cm diameter",
-        colors: "White, Black, Rose Gold, Blue",
-        featured: true
-    },
-    {
-        id: 9,
-        name: "Whale Tail Necklace",
-        description: "Delicate whale tail pendant on a silver chain.",
-        fullDescription: "This delicate whale tail necklace is both beautiful and meaningful. The whale tail symbolizes protection, good luck, and connection to the ocean.",
-        price: 34.99,
-        category: "jewelry",
-        dimensions: "2 cm pendant",
-        colors: "Ocean Blue, Pearl White, Navy",
-        featured: true
-    },
-    {
-        id: 10,
-        name: "Mushroom Magnets Set",
-        description: "Set of 6 cute mushroom magnets for your fridge.",
-        fullDescription: "Add a touch of whimsy to your kitchen with these adorable mushroom magnets! This set includes six unique mushrooms with different color patterns.",
-        price: 25.00,
-        category: "decor",
-        dimensions: "3-4 cm tall",
-        colors: "Various mushroom colors",
-        featured: true
-    },
-    {
-        id: 11,
-        name: "Planet Keychains",
-        description: "Solar system planets as keychains.",
-        fullDescription: "Explore the solar system every time you grab your keys! This set includes five detailed planet keychains based on NASA imagery.",
-        price: 30.00,
-        category: "keychains",
-        dimensions: "2.5-3 cm diameter",
-        colors: "Planet colors",
-        featured: true
-    },
-    {
-        id: 12,
-        name: "Tiny Terrarium",
-        description: "Miniature polymer clay terrarium with succulents.",
-        fullDescription: "Bring the beauty of a terrarium to your space without any maintenance! This tiny terrarium features realistic polymer clay succulents.",
-        price: 38.50,
-        category: "miniatures",
-        dimensions: "8 x 8 x 12 cm",
-        colors: "Green succulents",
-        featured: true
-    }
-];
-
 // Category information
 const categoryInfo = {
     jewelry: {
@@ -254,7 +118,6 @@ async function displayProducts() {
                         ${category ? category.name : product.category}
                     </span>
                     <h3 class="product-title">${product.name}</h3>
-                    <p class="product-description">${product.description || ''}</p>
                     <div class="product-footer">
                         <div class="product-price">$${parseFloat(product.price).toFixed(2)}</div>
                     </div>
@@ -262,11 +125,6 @@ async function displayProducts() {
             `;
             
             productsGrid.appendChild(productCard);
-            
-            // Add click event to open modal
-            productCard.addEventListener('click', function(e) {
-                openProductModal(product.id);
-            });
         });
     } catch (error) {
         console.error('Error displaying products:', error);
@@ -348,7 +206,7 @@ function openProductModal(productId) {
         // If product has an image, replace the icon container with an image
         const mainImage = modalIcon.closest('.main-image');
         if (mainImage) {
-            mainImage.innerHTML = `<img src="${product.image_url}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">`;
+            mainImage.innerHTML = `<img src="${product.image_url}" alt="${product.name}" class="product-modal-image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">`;
         }
     } else {
         // Use category icon
@@ -370,6 +228,40 @@ function openProductModal(productId) {
     // Update add to cart button
     const addToCartBtn = document.getElementById('modalAddToCart');
     addToCartBtn.dataset.id = product.id;
+    
+    // Handle option buttons (Single/Twin)
+    const optionButtons = document.querySelectorAll('.option-btn');
+    const modalPrice = document.getElementById('modalPrice');
+    let selectedOption = 'single'; // default
+    let currentPrice = parseFloat(product.price);
+    
+    optionButtons.forEach(btn => {
+        btn.onclick = function() {
+            optionButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            selectedOption = this.dataset.option;
+            
+            // Update price based on selection
+            if (selectedOption === 'twin' && product.twin_price) {
+                currentPrice = parseFloat(product.twin_price);
+                modalPrice.textContent = `$${currentPrice.toFixed(2)}`;
+            } else {
+                currentPrice = parseFloat(product.price);
+                modalPrice.textContent = `$${currentPrice.toFixed(2)}`;
+            }
+            
+            // Update image based on selection
+            const modalImage = document.querySelector('.product-modal-image');
+            if (modalImage && product.image_url) {
+                const baseImagePath = product.image_url.replace('single', '');
+                if (selectedOption === 'twin') {
+                    modalImage.src = baseImagePath.replace('images/', 'images/twin');
+                } else {
+                    modalImage.src = baseImagePath.replace('images/', 'images/single');
+                }
+            }
+        };
+    });
     
     // Quantity controls
     const quantityInput = document.querySelector('.quantity-input');
@@ -393,11 +285,12 @@ function openProductModal(productId) {
     // Add to cart from modal
     addToCartBtn.onclick = function() {
         const quantity = parseInt(quantityInput.value);
+        const optionText = selectedOption === 'twin' ? 'Twin Set' : 'Single';
         for (let i = 0; i < quantity; i++) {
-            addToCart(product.id);
+            addToCart(product.id, selectedOption, currentPrice);
         }
         closeProductModal();
-        showNotification(`${quantity} × ${product.name} added to cart!`);
+        showNotification(`${quantity} × ${product.name} (${optionText}) added to cart!`);
     };
     
     // Display reviews
@@ -533,8 +426,10 @@ function openProductModal(productId) {
 // Close product modal
 function closeProductModal() {
     const modal = document.getElementById('productModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 }
 
 // Initialize when page loads
@@ -550,6 +445,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
             });
         }
+        
+        // Event delegation for product cards
+        const productsGrid = document.getElementById('productsGrid');
+        productsGrid.addEventListener('click', function(e) {
+            const productCard = e.target.closest('.product-card');
+            if (productCard) {
+                const productId = parseInt(productCard.dataset.id);
+                openProductModal(productId);
+            }
+        });
     }
     
     // Modal close buttons - set up regardless of productsGrid
@@ -561,7 +466,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     if (modalOverlay) {
-        modalOverlay.addEventListener('click', closeProductModal);
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                closeProductModal();
+            }
+        });
     }
     
     // Close with Escape key
